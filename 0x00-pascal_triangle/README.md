@@ -10,15 +10,15 @@ The program takes an integer n as input and returns a list of lists of integers 
 ### Dependencies
 * Python 3.6 or higher
 
-##Installing
+## Installing
 * Clone the repository to your local machine
 
-##Executing program
+## Executing program
 * Run the program by executing the command python3 pascal_triangle.py
 * Enter a positive integer n when prompted
 * The program will output the Pascal's triangle of size n
 
-###Example:
+### Example:
 $ python3 pascal_triangle.py
 Enter a positive integer n: 5
 [1]
@@ -27,5 +27,5 @@ Enter a positive integer n: 5
 [1, 3, 3, 1]
 [1, 4, 6, 4, 1]
 
-##Author
+## Author
 Chimmysmallz (Chimmysmallz@github.com)
