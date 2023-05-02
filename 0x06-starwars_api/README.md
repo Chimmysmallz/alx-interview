@@ -12,9 +12,11 @@ This script is used to retrieve and display all characters from a given Star War
 git clone https://github.com/Chimmysmallz/alx-interview/0x06-starwars.api.git
 
 2. Navigate to the project directory
+
 cd star-wars-characters
 
 3. install dependencies
+
 npm install
 
 ## Usage
