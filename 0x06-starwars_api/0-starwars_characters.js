@@ -1,31 +1,37 @@
 #!/usr/bin/node
-const request = require('request');
 
-const movieId = process.argv[2];
+import requests
+import sys
 
-// Fetch the movie data from the API
-const movieUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
-request.get(movieUrl, (error, response, body) => {
-  if (error) {
-    console.error(`Error fetching movie data: ${error}`);
-    return;
-  }
+base_url = "https://swapi-api.alx-tools.com/api/films/"
 
-  const movieData = JSON.parse(body);
-
-  // Extract the character URLs from the movie data
-  const characterUrls = movieData["characters"];
-
-  // Fetch the character data from the API and print their names
-  characterUrls.forEach((characterUrl) => {
-    request.get(characterUrl, (error, response, body) => {
-      if (error) {
-        console.error(`Error fetching character data: ${error}`);
-        return;
-      }
-
-      const characterData = JSON.parse(body);
-      console.log(characterData["name"]);
-    });
-  });
-});
+# If a movie ID is provided as an argument, print its characters
+if len(sys.argv) > 1:
+    movie_id = sys.argv[1]
+    movie_url = base_url + movie_id + "/"
+    response = requests.get(movie_url)
+    if response.status_code == 404:
+        print("Movie not found")
+    else:
+        movie_data = response.json()
+        character_urls = movie_data["characters"]
+        for character_url in character_urls:
+            response = requests.get(character_url)
+            character_data = response.json()
+            print(character_data["name"])
+# If no movie ID is provided, print the characters for all movies
+else:
+    for i in range(1, 8):
+        movie_url = base_url + str(i) + "/"
+        response = requests.get(movie_url)
+        if response.status_code == 404:
+            print(f"Movie ID {i} not found")
+        else:
+            movie_data = response.json()
+            print(f"Characters for {movie_data['title']}:")
+            character_urls = movie_data["characters"]
+            for character_url in character_urls:
+                response = requests.get(character_url)
+                character_data = response.json()
+                print(character_data["name"])
+            print()
