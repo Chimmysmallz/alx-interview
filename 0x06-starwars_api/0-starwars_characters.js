@@ -6,7 +6,7 @@ import sys
 movie_id = sys.argv[1]
 
 # Fetch the movie data from the API
-movie_url = f"https://swapi-api.alx-tools.com/api/films/{movie_id}"
+movie_url = f"https://swapi-api.alx-tools.com/api/people/"
 response = requests.get(movie_url)
 movie_data = response.json()
 
