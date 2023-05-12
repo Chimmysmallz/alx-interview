@@ -1,43 +1,20 @@
 #!/usr/bin/node
-const request = require('request');
 
-if (process.argv.length !== 3) {
-  console.error('Usage: ./0-starwars_characters.js <movie_id>');
-  process.exit(1);
-}
+import requests
+import sys
 
-const movieId = process.argv[2];
-const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
+movie_id = sys.argv[1]
 
-request(apiUrl, function (error, response, body) {
-  if (error) {
-    console.error(error);
-    process.exit(1);
-  }
-  if (response.statusCode !== 200) {
-    console.error(`Unexpected status code: ${response.statusCode}`);
-    process.exit(1);
-  }
+# Fetch the movie data from the API
+movie_url = f"https://swapi-api.alx-tools.com/api/films/{movie_id}"
+response = requests.get(movie_url)
+movie_data = response.json()
 
-  const characters = JSON.parse(body).characters;
-  const requests = characters.map(url => {
-    return new Promise((resolve, reject) => {
-      request(url, function (error, response, body) {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(JSON.parse(body).name);
-        }
-      });
-    });
-  });
+# Extract the character URLs from the movie data
+character_urls = movie_data["characters"]
 
-  Promise.all(requests)
-    .then(names => {
-      names.forEach(name => console.log(name));
-    })
-    .catch(error => {
-      console.error(error);
-      process.exit(1);
-    });
-});
+# Fetch the character data from the API and print their names
+for character_url in character_urls:
+    response = requests.get(character_url)
+    character_data = response.json()
+    print(character_data["name"])
