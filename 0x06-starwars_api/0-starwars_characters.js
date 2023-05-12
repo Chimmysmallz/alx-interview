@@ -3,7 +3,7 @@
 import requests
 import sys
 
-base_url = "https://swapi-api.alx-tools.com/api/films/"
+base_url = "https://swapi-api.alx-tools.com/api/"
 
 # If a movie ID is provided as an argument, print its characters
 if len(sys.argv) > 1:
