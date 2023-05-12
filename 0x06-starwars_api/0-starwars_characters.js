@@ -1,20 +1,31 @@
 #!/usr/bin/node
+const request = require('request');
 
-import requests
-import sys
+const movieId = process.argv[2];
 
-movie_id = sys.argv[1]
+// Fetch the movie data from the API
+const movieUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
+request.get(movieUrl, (error, response, body) => {
+  if (error) {
+    console.error(`Error fetching movie data: ${error}`);
+    return;
+  }
 
-# Fetch the movie data from the API
-movie_url = f"https://swapi-api.alx-tools.com/api/films/3/"
-response = requests.get(movie_url)
-movie_data = response.json()
+  const movieData = JSON.parse(body);
 
-# Extract the character URLs from the movie data
-character_urls = movie_data["characters"]
+  // Extract the character URLs from the movie data
+  const characterUrls = movieData["characters"];
 
-# Fetch the character data from the API and print their names
-for character_url in character_urls:
-    response = requests.get(character_url)
-    character_data = response.json()
-    print(character_data["name"])
+  // Fetch the character data from the API and print their names
+  characterUrls.forEach((characterUrl) => {
+    request.get(characterUrl, (error, response, body) => {
+      if (error) {
+        console.error(`Error fetching character data: ${error}`);
+        return;
+      }
+
+      const characterData = JSON.parse(body);
+      console.log(characterData["name"]);
+    });
+  });
+});
