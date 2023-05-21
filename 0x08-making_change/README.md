@@ -7,17 +7,6 @@ This program calculates the fewest number of coins needed to meet a given total 
 - Python 3.4.3 or higher
 - Ubuntu 14.04 LTS
 
-## Usage
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/making-change.git
-'''bash
-cd making-change
-
-./0-making_change.py
-
 ## Problem Description
 You are given a pile of coins with different values, and your goal is to determine the fewest number of coins needed to meet a given total amount.
 
@@ -35,3 +24,15 @@ You can assume you have an infinite number of each denomination of coin in the l
 ## Example
 print(makeChange([1, 2, 25], 37))  # Output: 7
 print(makeChange([1256, 54, 48, 16, 102], 1453))  # Output: -1
+
+## Usage
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/making-change.git
+
+cd making-change
+
+./0-making_change.py
+
