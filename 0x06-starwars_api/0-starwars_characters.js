@@ -15,15 +15,27 @@ request(apiUrl, (error, response, body) => {
   const movie = JSON.parse(body);
   const characterUrls = movie.characters;
 
-  characterUrls.forEach((characterUrl) => {
-    request(characterUrl, (error, response, body) => {
-      if (error) {
-        console.error(error);
-        return;
-      }
+  const fetchCharacter = (characterUrl) => {
+    return new Promise((resolve, reject) => {
+      request(characterUrl, (error, response, body) => {
+        if (error) {
+          reject(error);
+          return;
+        }
 
-      const character = JSON.parse(body);
-      console.log(character.name);
+        const character = JSON.parse(body);
+        resolve(character.name);
+      });
     });
-  });
+  };
+
+  Promise.all(characterUrls.map(fetchCharacter))
+    .then((characterNames) => {
+      characterNames.forEach((name) => {
+        console.log(name);
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 });
