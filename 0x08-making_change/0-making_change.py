@@ -3,7 +3,8 @@
 """
 Module: 0-making_change
 -----------------------
-Given a pile of coins of different values, determines the fewest number of coins needed to meet a given total amount.
+Given a pile of coins of different values, determines the fewest number of coins needed
+to meet a given total amount.
 """
 
 def makeChange(coins, total):
@@ -16,9 +17,7 @@ def makeChange(coins, total):
 
     Returns:
         int: Fewest number of coins needed to meet the total. Returns -1 if the total cannot be met.
-
     """
-
     if total <= 0:
         return 0
 
