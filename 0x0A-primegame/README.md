@@ -43,6 +43,3 @@ In this example, Maria and Ben play three rounds with the given numbers. Ben win
 
 - Chiamaka Nwabulue
 - GitHub: [Chimmysmallz](https://github.com/Chimmysmallz)
-
-Feel free to provide additional sections or customize the README.md file according to your project's needs.
-```
