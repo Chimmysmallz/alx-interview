@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-def isWinner(x, nums):
+def is_winner(x, nums):
     def is_prime(n):
         if n < 2:
             return False
@@ -58,4 +58,4 @@ def isWinner(x, nums):
 if __name__ == '__main__':
     rounds = 3
     numbers = [4, 5, 1]
-    print("Winner: {}".format(isWinner(rounds, numbers)))
+    print("Winner: {}".format(is_winner(rounds, numbers)))
