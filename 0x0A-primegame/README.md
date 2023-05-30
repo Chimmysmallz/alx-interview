@@ -1,6 +1,3 @@
-Certainly! Here's an example README.md file for the prime_game.py script:
-
-```markdown
 # Prime Game
 
 This script allows you to play the Prime Game, a game where two players take turns choosing prime numbers from a set of consecutive integers and removing them along with their multiples. The player who cannot make a move loses the game. The script determines the winner of each round based on the given inputs and returns the player with the most wins.
