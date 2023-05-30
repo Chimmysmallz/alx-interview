@@ -17,7 +17,7 @@ def is_winner(x, nums):
 
     def get_winner(n):
         if n == 1:
-            return None
+            return 2
 
         player = 1
         primes = [2]
@@ -26,7 +26,7 @@ def is_winner(x, nums):
         while next_prime <= n:
             primes.append(next_prime)
             next_prime = get_next_prime(next_prime)
-        
+
         while n > 1:
             found = False
             for prime in primes:
@@ -37,7 +37,7 @@ def is_winner(x, nums):
             if not found:
                 break
             player = 1 if player == 2 else 2
-        
+
         return player
 
     winner_count = {1: 0, 2: 0}
