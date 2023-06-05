@@ -1,6 +1,17 @@
 #!/usr/bin/python3
 
-def is_winner(x, nums):
+def isWinner(x, nums):
+    """
+    Determine the winner of each game based on the given number of rounds and array of n.
+
+    Args:
+        x (int): Number of rounds.
+        nums (list): Array of n.
+
+    Returns:
+        str: Name of the player who won the most rounds. If the winner cannot be determined, returns None.
+    """
+
     def is_prime(n):
         if n < 2:
             return False
@@ -53,3 +64,16 @@ def is_winner(x, nums):
         return "Ben"
     else:
         return None
+
+# Handle input and call the function
+x = int(input("Enter the number of rounds: "))
+nums = []
+for i in range(x):
+    num = int(input(f"Enter the value of n for round {i+1}: "))
+    nums.append(num)
+
+winner = isWinner(x, nums)
+if winner is not None:
+    print(f"The winner of the most rounds is: {winner}")
+else:
+    print("The winner cannot be determined.")
