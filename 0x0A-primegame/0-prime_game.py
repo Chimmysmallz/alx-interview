@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+"""
+0-prime_game
+
+Module to determine the winner of the prime game based on the given number of rounds and array of n.
+"""
+
 def isWinner(x, nums):
     """
     Determine the winner of each game based on the given number of rounds and array of n.
