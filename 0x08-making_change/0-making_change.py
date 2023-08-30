@@ -2,7 +2,7 @@
 
 """
 Module: 0-making_change
------------------------
+----------------------
 Given a pile of coins of different values, determines the fewest number of coins needed
 to meet a given total amount.
 """
